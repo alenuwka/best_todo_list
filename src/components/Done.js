@@ -13,8 +13,8 @@ export class Done extends Component {
                         <span>{item.text}</span>
                       </div>
                       <div class="col-4 btn-group-vertical border-bottom">
-                        <button class="btn btn-info" onClick={() => this.props.taskInProgress(item)}>To Do</button>
-                        <button class="btn btn-info" onClick={() => this.props.taskBlock(item)}>Block</button> 
+                        <button class="btn btn-info" onClick={() => this.props.taskInProgress(item, "done")}>To Do</button>
+                        <button class="btn btn-info" onClick={() => this.props.taskBlock(item, "done")}>Block</button> 
                       </div>
                     </div>
                 ))}

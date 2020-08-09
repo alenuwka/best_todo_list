@@ -13,8 +13,8 @@ export class Block extends Component {
                         <span>{item.text}</span>
                       </div>
                       <div class="col-4 btn-group-vertical border-bottom">
-                        <button class="btn btn-info" onClick={() => this.props.taskDone(item)}>Done</button>
-                        <button class="btn btn-info" onClick={() => this.props.taskInProgress(item)}>To Do</button>
+                        <button class="btn btn-info" onClick={() => this.props.taskDone(item, "blocked")}>Done</button>
+                        <button class="btn btn-info" onClick={() => this.props.taskInProgress(item, "blocked")}>To Do</button>
                       </div>
                     </div>
                 ))}

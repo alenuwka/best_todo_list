@@ -16,8 +16,8 @@ export class InProgres extends Component {
                       <span>{item.text}</span>
                     </div>
                     <div class="col-4 btn-group-vertical border-bottom">
-                      <button class="btn btn-info" onClick={() => this.props.taskDone(item)}>Done</button>
-                      <button class="btn btn-info" onClick={() => this.props.taskBlock(item)}>Block</button>
+                      <button class="btn btn-info" onClick={() => this.props.taskDone(item, "inprogress")}>Done</button>
+                      <button class="btn btn-info" onClick={() => this.props.taskBlock(item, "inprogress")}>Block</button>
                     </div>
                     
                   </div>

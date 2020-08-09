@@ -7,16 +7,15 @@ export class TodoListDisplay extends Component {
   
     constructor(props) {
         super(props);
-         this.state = { inprogress : [{id : 4, text :'task1'}, {id : 1, text :'task2'}],
-          done : [{id : 2, text :'task3'}], blocked : [{id : 3, text :'task4'}]};
-        // this.state = {"inprogress": [],"done" :[], "blocked":[]};
+        //  this.state = { inprogress : [{id : 4, text :'task1'}, {id : 1, text :'task2'}],
+        //   done : [{id : 2, text :'task3'}], blocked : [{id : 3, text :'task4'}]};
+        this.state = {"inprogress": [],"done" :[], "blocked":[]};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.taskID = 5;
+        this.taskID = 0;
         this.taskDone = this.taskDone.bind(this);
         this.taskBlock = this.taskBlock.bind(this);
         this.taskInProgress = this.taskInProgress.bind(this);
-        this.getStateTask = this.getStateTask.bind(this);
       }
     
       render() {
@@ -48,16 +47,14 @@ export class TodoListDisplay extends Component {
         );
       }
     
-      taskDone(e) {
+      taskDone(item, task) {
         const newItem = {
-          id: e.id,
-          text : e.text
+          id: item.id,
+          text : item.text
         };
         
-
-        const stateTask = this.getStateTask(e.id);
-        const removeIndex = this.state[stateTask].map(item => item.id).indexOf(e.id);
-        this.state[stateTask].splice(removeIndex,1);
+        const removeIndex = this.state[task].map(item => item.id).indexOf(item.id);
+        this.state[task].splice(removeIndex,1);
 
         this.setState(state => ({
           done: state.done.concat(newItem),
@@ -66,15 +63,14 @@ export class TodoListDisplay extends Component {
 
       }
 
-      taskBlock(e) {
+      taskBlock(item, task) {
         const newItem = {
-          id: e.id,
-          text : e.text
+          id: item.id,
+          text : item.text
         };
-
-        const stateTask = this.getStateTask(e.id);
-        const removeIndex = this.state[stateTask].map(item => item.id).indexOf(e.id);
-        this.state[stateTask].splice(removeIndex,1);
+       
+        const removeIndex = this.state[task].map(item => item.id).indexOf(item.id);
+        this.state[task].splice(removeIndex,1);
 
         this.setState(state => ({
           blocked: state.blocked.concat(newItem),
@@ -82,15 +78,14 @@ export class TodoListDisplay extends Component {
 
       }
 
-      taskInProgress(e) {
+      taskInProgress(item, task) {
         const newItem = {
-          id: e.id,
-          text : e.text
+          id: item.id,
+          text : item.text
         };
 
-        const stateTask = this.getStateTask(e.id);
-        const removeIndex = this.state[stateTask].map(item => item.id).indexOf(e.id);
-        this.state[stateTask].splice(removeIndex,1);
+        const removeIndex = this.state[task].map(item => item.id).indexOf(item.id);
+        this.state[task].splice(removeIndex,1);
 
         this.setState(state => ({
           inprogress: state.inprogress.concat(newItem),
@@ -116,18 +111,6 @@ export class TodoListDisplay extends Component {
           inprogress: state.inprogress.concat(newItem),
           text: ''
         }));
-      }
-
-      getStateTask(e){
-        let stateTask ='';
-        Object.keys(this.state).map(key =>{
-          this.state[key].map(task =>{
-            if(task.id === e){
-              stateTask = key;
-            }
-          })
-        });
-          return stateTask
       }
 
     }
