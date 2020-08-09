@@ -1,0 +1,22 @@
+
+.mainDiv{
+  border-bottom: 2px solid #31d1df;
+  color: #31d1df;
+  text-align: left;
+  font-size: 25px;
+  margin: 2px;
+  
+}
+
+span {
+  color: #7b9a9d;
+}
+
+.btn-info {
+  margin: 2px;
+}
+
+.input{
+  margin: 2px;
+}
+
